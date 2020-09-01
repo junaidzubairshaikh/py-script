@@ -5,6 +5,7 @@
 # Requirement
 1. Make sure the chrome version 84 is installed.(Otherwise, you have to install chrome driver that match your chrome version)
 2. Python is installed  
+3. Run -> pip install 
 
 ```
 
