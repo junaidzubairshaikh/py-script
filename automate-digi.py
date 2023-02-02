@@ -2,19 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
 
-driver =  webdriver.Chrome()
-courseLinkId = "ctl00_ContentPlaceHolder1_lstCourse_ctrl1_btnCourseWebsite"
+driver = webdriver.Chrome(ChromeDriverManager().install())
 nextLessionId = "ctl00_ContentPlaceHolder1_lbtnNextLessonTop"
 previousLessonId = "ctl00_ContentPlaceHolder1_lbtnPreviousLessonTop"
-videoLinkId= "ctl00_ContentPlaceHolder1_lstCourseCalender_ctrl3_gvCourseCalender_ctl06_lbtnLesson"
-weekNumberId = "Week_04"
-
+courseLinkId = "ctl00_ContentPlaceHolder1_lstCourse_ctrl1_btnCourseWebsite"
+videoLinkId = "ctl00_ContentPlaceHolder1_lstCourseCalender_ctrl11_gvCourseCalender_ctl07_lbtnLesson"
+weekNumberId = "Week_12"
 
 def login(url,username,password,submit_button):
    driver.get(url)
    driver.find_element_by_id(username).send_keys("username")
-   driver.find_element_by_id(password).send_keys("password")
+   driver.find_element_by_id(password).send_keys("pass")
    driver.find_element_by_id(submit_button).click()
    driver.implicitly_wait(7)
    driver.maximize_window()
@@ -50,7 +50,7 @@ def watchVideos(num=0):
         clickNextTopic()
 
 
-login("login-url","txtStudentId","txtNewPassword","btnLogin")
+login("site_login_url","txtStudentId","txtNewPassword","btnLogin")
 clickOnCourseLink()
 scrollDown(200)
 toggleWeekNumber()
